@@ -13,9 +13,23 @@
 # and
 #   about_triangle_project_2.rb
 #
+def validate(x)
+  if x <= 0
+    raise TriangleError
+  end
+end
+
 def triangle(a, b, c)
-  return :equilateral if a == b and b == c 
-  return :isosceles if a == b or b == c or c == a 
+  validate(a)
+  validate(b)
+  validate(c)
+
+  return :equilateral if a == b and b == c
+
+  a, b, c = [a, b, c].sort
+  raise TriangleError if a + b <= c
+  
+  return :isosceles if a == b or b == c or c == a
   return :scalene
 end
 
