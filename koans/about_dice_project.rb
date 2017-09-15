@@ -6,7 +6,7 @@ class DiceSet
   attr_accessor :values
 
   def roll(num)
-    @values = (0...num).collect { rand 6 + 1 }
+    @values = (0...num).collect { (rand 6) + 1 }
   end
 end
 
